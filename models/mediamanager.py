@@ -1,47 +1,3 @@
-# from media import Media
-# from mediatype import MediaType
-# import json
-
-# class MediaManager:
-#     """
-#     Represents a collection of Media
-
-#     Attributes:
-#         filename: name of the file to read
-#         types: a list of types (see functions below)
-#     """
-#     def __init__(self, filename: str = "data/media.json"):
-#         self.filename = filename
-#         types = []
-#         media = []
-#         with open(filename, 'r') as fp:
-#             data = json.load(fp)
-#             for val in data:
-#                 types.append(val.type)
-#                 media.append(Media(**val))
-
-#         with open(filename, 'r') as fp:
-#             data = json.load(fp)
-
-#             for elem in data:
-#                 if elem.type == 'Books':
-#                     type = MediaType('Book', 'name', 'publisher', 'pages')
-#                     types.append(type)
-#                     entry = Media()
-
-    
-
-#         self.types = types
-#         self.media = media
-
-#     """
-#     Create a media type with the format [name, type, field_1, field_2, field_3]
-#     You are not allowed to create a type if it already exists, even with different fields
-#     """
-#     def create_type(self, type, f1, f2, f3):
-#         for type in self.types:
-#             med = Media()
-
 from models.media import Media
 from models.mediatype import MediaType
 import json
@@ -49,7 +5,6 @@ import json
 PRESET_TYPE_DATA = [
     ['music', 'artist', 'album', 'genre'],
     ['book', 'author', 'publisher', 'genre'],
-    ['movie', 'genre', 'year', 'length'],
     ['game', 'main_platform', 'publisher' ,'genre']
 ]
 
@@ -103,18 +58,24 @@ class MediaManager:
         new_type = MediaType(data["type"], keys[2], keys[3], keys[4])
         self.types.append(new_type)
 
+    """
+    Add media instance to the manager's list of media
+    """
+    def add_media(self, name, type_name, field_1, field_2, field_3):
+        pass
 
     """
-    Delete a type from the MediaManager
-    You are not allowed to delete a type if an entry in the collection has that type
+    Delete media instance matching name and type from the manager's list of media
     """
-    def delete_type(self, type):
+    def delete_media(self, name, type_name):
         pass
+
 
     """
     Get a list of media entries that are a given type
     Return None if there are no results
     """
+
     def list_by_type(self, type):
         media_entries = []
         for entry in self.media:
@@ -130,9 +91,13 @@ class MediaManager:
     """
     Return JSON compatible version of the list of media
     """
+
     def save(self):
         pass
 
+    """
+    Find media entry with specified name and type
+    """
     def view_media(self, name, type):
         for media in self.media:
             if media.type.name == type and media.name == name:

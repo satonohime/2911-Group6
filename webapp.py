@@ -6,7 +6,8 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def homepage():
     mediamnger = MediaManager()
     media_entries = mediamnger.list_by_type('book')
