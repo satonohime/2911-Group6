@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>Index</title>
 </head>
 <body>
@@ -16,31 +16,36 @@
         <p>My Media List</p>
         <nav>
           <ul>
-            <li><a href="#"></a></li>
             <li><a href="#">About</a></li>
           </ul>
         </nav>
       </header>
       <main>
         <button id="addBtn">+</button>
+        {% for list in types %}
+        <h2>{{list[0].capitalize()}}</h2>
         <table>
             <tr>
-                <th><a href=#>Type</a></th>
-                <th><a href=#>Name</a></th>
-                <th><a href=#>Field 3</a></th>
-                <th><a href=#>Field 4</a></th>
-                <th><a href=#>Field 5</a></th>
+                <!-- <th><a href=#>Type</a></th> -->
+                <th>Name</th>
+                <th>{{list[1].capitalize()}}</th>
+                <th>{{list[2].capitalize()}}</th>
+                <th>{{list[3].capitalize()}}</th>
             </tr>
+            {% for entry in data %}
+            {% if entry.type.name == list[0] %}
             <tr>
-                <td>Info 1</td>
-                <td>Info 2</td>
-                <td>Info 3</td>
-                <td>Info 4</td>
-                <td>Info 5</td>
+                <td><a href="/{{list[0]}}/{{entry.name}}">{{entry.name}}</a></td>
+                <td>{{entry.field_1}}</td>
+                <td>{{entry.field_2}}</td>
+                <td>{{entry.field_3}}</td>
                 <td><Button>Edit</Button></td>
                 <td><Button>Delete</Button></td>
             </tr>
+            {% endif %}
+            {% endfor %}
         </table>
+        {% endfor %}
       </main>
       <footer><p>Team Watermelon</p></footer>
     </div>

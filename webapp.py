@@ -6,21 +6,26 @@ import json
 
 app = Flask(__name__)
 
+PRESET_TYPE_DATA = [
+    ['music', 'artist', 'album', 'genre'],
+    ['book', 'author', 'publisher', 'genre'],
+    ['game', 'main_platform', 'publisher' ,'genre']
+]
 
 @app.route("/")
 def homepage():
     mediamnger = MediaManager()
-    media_entries = mediamnger.list_by_type('book')
-    return render_template('index.html', data=media_entries)
+    media_entries = mediamnger.media
+    return render_template('index.html', data=media_entries, types=PRESET_TYPE_DATA)
 
-@app.route("/book/<string:book_name>", methods=["GET"])
-def get_entry(book_name):
+@app.route("/<string:media_type>/<string:name>", methods=["GET"])
+def get_entry(media_type, name):
     mediamnger = MediaManager()
-    book = mediamnger.view_media(book_name, 'book')
-    print(book.field_1)
-    if book is None:
-        return 'Book entry not found', 404
-    return render_template('entry.html', b_name=book_name, data=book)
+    entry = mediamnger.view_media(name, media_type)
+    print(entry.field_1)
+    if entry is None:
+        return 'Entry not found', 404
+    return render_template('entry.html', name=name, data=entry.to_dict())
 
 if __name__ == "__main__":
     app.run(debug=True)

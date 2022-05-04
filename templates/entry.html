@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="templates/css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
   <title>My Media List</title>
 </head>
 <body>
   <div class="Information">
     <main>
         <ul>
-            <li>Name: </li>
-            <li>Type: </li>
-            <li>Field 1: </li>
-            <li>Field 2: </li>
-            <li>Field 3: </li>
+            {% for key, val in data.items() %}
+            <h3>{{key.capitalize()}}: {{val.capitalize()}}</h3>
+            {% endfor %}
         </ul>
     </main>
   </div>
