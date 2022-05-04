@@ -3,10 +3,12 @@ from models.mediatype import MediaType
 import json
 
 PRESET_TYPE_DATA = [
-    ['music', 'artist', 'album', 'genre'],
-    ['book', 'author', 'publisher', 'genre'],
-    ['game', 'main_platform', 'publisher' ,'genre']
+    ["music", "artist", "album", "genre"],
+    ["book", "author", "publisher", "genre"],
+    ["movie", "genre", "year", "length"],
+    ["game", "main_platform", "publisher", "genre"],
 ]
+
 
 class MediaManager:
     """
@@ -61,15 +63,32 @@ class MediaManager:
     """
     Add media instance to the manager's list of media
     """
+
     def add_media(self, name, type_name, field_1, field_2, field_3):
-        pass
+        m_type = self.search_for_type(type_name)
+        if m_type is None:
+            raise ValueError
+        else:
+            self.media.append(Media(name, m_type, field_1, field_2, field_3))
 
     """
     Delete media instance matching name and type from the manager's list of media
-    """
-    def delete_media(self, name, type_name):
-        pass
 
+    Returns True if something was deleted
+    Returns False if unable to delete
+    """
+
+    def delete_media(self, name, type_name):
+        to_delete = None
+        for entry in self.media:
+            if entry.name == name and entry.type.name == type_name:
+                to_delete = entry
+                break
+        if to_delete is not None:
+            self.media.remove(to_delete)
+            return True
+        else:
+            return False
 
     """
     Get a list of media entries that are a given type
@@ -89,11 +108,13 @@ class MediaManager:
 
 
     """
-    Return JSON compatible version of the list of media
+    Write JSON compatible version of the list of media to a file
     """
 
     def save(self):
-        pass
+        with open(self.filename, "w") as fp:
+            json.dump([entry.to_dict() for entry in self.media], fp)
+        
 
     """
     Find media entry with specified name and type
@@ -104,3 +125,4 @@ class MediaManager:
                 return media
         return None
 
+        
