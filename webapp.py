@@ -5,7 +5,8 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def homepage():
     pass
 
