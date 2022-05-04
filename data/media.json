@@ -1,1 +1,4 @@
-[{"name": "book1", "type": "book", "publisher": "pub1", "pages": "10", "genre": "Fantasy"}, {"name": "book2", "type": "book", "publisher": "pub2", "pages": "11", "genre": "Action"}]
+[{"name": "book1", "type": "book", "author": "a1", "publisher": "pub1", "genre": "Fantasy"}, 
+{"name": "book2", "type": "book", "author": "a2", "publisher": "pub2", "genre": "Action"},
+{"name": "music1", "type": "music", "artist": "a3", "album": "album1", "genre": "drama"},
+{"name": "game1", "type": "game", "main_platform": "p1", "publisher": "pub3", "genre": "Action"}]

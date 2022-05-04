@@ -34,19 +34,15 @@ class MediaManager:
                 if m_type is None:
                     self.add_type(data)
                     m_type = self.search_for_type(data["type"])
-
+                
                 data_keys = [*data]
-                self.media.append(
-                    Media(
-                        data["name"], m_type, data_keys[2], data_keys[3], data_keys[4]
-                    )
-                )
+                self.media.append(Media(data["name"], m_type, data[data_keys[2]], data[data_keys[3]], data[data_keys[4]]))
+
 
     """
     Helper function
     Return a MediaType instance with the specified name, None if not found
     """
-
     def search_for_type(self, name):
         for t in self.types:
             if t.name == name:
@@ -59,7 +55,6 @@ class MediaManager:
 
     Note: this will only execute when additional types need to be made when reading JSON data
     """
-
     def add_type(self, data):
         keys = [*data]
         new_type = MediaType(data["type"], keys[2], keys[3], keys[4])
@@ -111,6 +106,7 @@ class MediaManager:
         else:
             return media_entries
 
+
     """
     Write JSON compatible version of the list of media to a file
     """
@@ -118,3 +114,15 @@ class MediaManager:
     def save(self):
         with open(self.filename, "w") as fp:
             json.dump([entry.to_dict() for entry in self.media], fp)
+        
+
+    """
+    Find media entry with specified name and type
+    """
+    def view_media(self, name, type):
+        for media in self.media:
+            if media.type.name == type and media.name == name:
+                return media
+        return None
+
+        

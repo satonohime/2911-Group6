@@ -1,6 +1,5 @@
 from models.mediatype import MediaType
 
-
 class Media:
     """
     Represents an instance of a piece of media
