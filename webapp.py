@@ -22,7 +22,6 @@ def homepage():
 def get_entry(media_type, name):
     mediamnger = MediaManager()
     entry = mediamnger.view_media(name, media_type)
-    print(entry.field_1)
     if entry is None:
         return 'Entry not found', 404
     return render_template('entry.html', name=name, data=entry.to_dict())
