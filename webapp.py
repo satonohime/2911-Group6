@@ -16,7 +16,7 @@ PRESET_TYPE_DATA = [
 def homepage():
     mediamnger = MediaManager()
     media_entries = mediamnger.media
-    return render_template('index.html', data=media_entries, types=PRESET_TYPE_DATA)
+    return render_template('index.html', data=media_entries, types=mediamnger.types, manager=mediamnger)
 
 @app.route("/<string:media_type>/<string:name>", methods=["GET"])
 def get_entry(media_type, name):
