@@ -24,29 +24,29 @@
       <main>
         <button id="addBtn">Add a Media</button>
         <div class="infoTable">
-        {% for list in types %}
-        <h2>{{list[0].capitalize()}}</h2>
+        {% for type in types %}
+          {% if manager.list_by_type(type.name) != None %}
+        <h1>{{type.name.capitalize()}}</h1>
         <table>
             <tr>
                 <!-- <th><a href=#>Type</a></th> -->
                 <th>Name</th>
-                <th>{{list[1].capitalize()}}</th>
-                <th>{{list[2].capitalize()}}</th>
-                <th>{{list[3].capitalize()}}</th>
+                <th>{{type.field_1.capitalize()}}</th>
+                <th>{{type.field_2.capitalize()}}</th>
+                <th>{{type.field_3.capitalize()}}</th>
             </tr>
-            {% for entry in data %}
-            {% if entry.type.name == list[0] %}
+            {% for entry in manager.list_by_type(type.name) %}
             <tr class="tableRow">
-                <td><a href="/{{list[0]}}/{{entry.name}}">{{entry.name}}</a></td>
+                <td><a href="/{{type.name}}/{{entry.name}}">{{entry.name}}</a></td>
                 <td>{{entry.field_1}}</td>
                 <td>{{entry.field_2}}</td>
                 <td>{{entry.field_3}}</td>
                 <td><Button>Edit</Button></td>
                 <td><Button>Delete</Button></td>
             </tr>
-            {% endif %}
             {% endfor %}
         </table>
+          {% endif %}
         {% endfor %}
       </div>
         <footer class="foot"><p>Team Watermelon</p></footer>
