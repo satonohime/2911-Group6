@@ -16,7 +16,7 @@ PRESET_TYPE_DATA = [
 def homepage():
     mediamnger = MediaManager()
     media_entries = mediamnger.media
-    return render_template('index.html', data=media_entries, types=mediamnger.types, manager=mediamnger)
+    return render_template('index.html', data=media_entries, types=mediamnger.types, manager=mediamnger), 200
 
 @app.route("/<string:media_type>/<string:name>", methods=["GET"])
 def get_entry(media_type, name):
@@ -24,7 +24,7 @@ def get_entry(media_type, name):
     entry = mediamnger.view_media(name, media_type)
     if entry is None:
         return 'Entry not found', 404
-    return render_template('entry.html', name=name, data=entry.to_dict())
+    return render_template('entry.html', name=name, data=entry.to_dict()), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
