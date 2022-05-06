@@ -17,6 +17,7 @@ class MediaManager:
     Attributes:
         filename: name of the file to read
         types: a list of MediaTypes
+        media: a list of all the Media instances
     """
 
     def __init__(self, filename: str = "data/media.json"):
