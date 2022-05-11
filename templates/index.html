@@ -14,7 +14,7 @@
     <div class="container">
       <header>
         <nav class="navbar">
-        <p>My Media List</p>
+        <h1>My Media List</h1>
           <ul>
             <li><a href="#">About</a></li>
           </ul>
@@ -22,7 +22,17 @@
       </header>
       <div class="main">
       <main>
-        <button id="addBtn">Add a Media</button>
+        
+        <form action="/addentry" method="post">
+          
+          <select name="medias" id="medias">
+              <option value="select_media">Select a Media Type</option>
+              <option value="book">Book</option>
+              <option value="music">Music</option>
+              <option value="game">Game</option>
+          </select>
+          <button id="addBtn">Add a Media</button>
+        </form method='get'>
         <div class="infoTable">
         {% for type in types %}
           {% if manager.list_by_type(type.name) != None %}
@@ -41,7 +51,9 @@
                 <td>{{entry.field_1}}</td>
                 <td>{{entry.field_2}}</td>
                 <td>{{entry.field_3}}</td>
-                <td><Button>Edit</Button></td>
+                <td>
+                  <form action="/editentry/{{type.name}}/{{entry.name}}" method="get"><Button>Edit</Button>
+                  </form></td>
                 <td><Button>Delete</Button></td>
             </tr>
             {% endfor %}
