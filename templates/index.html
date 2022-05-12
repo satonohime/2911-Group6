@@ -39,7 +39,8 @@
                   <td>{{entry.field_1}}</td>
                   <td>{{entry.field_2}}</td>
                   <td>{{entry.field_3}}</td>
-                  <td><Button>Edit</Button></td>
+                  <!-- <td><Button>Edit</Button></td> -->
+                  <td><a href = "{{url_for('edit')}}"><button>Edit</button></a></td>
                   <td><Button>Delete</Button></td>
               </tr>
               {% endfor %}

@@ -26,5 +26,9 @@ def get_entry(media_type, name):
         return 'Entry not found', 404
     return render_template('entry.html', name=name, data=entry.to_dict())
 
+@app.route("/edit", methods=["GET"])
+def edit():
+    return render_template("edit.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
