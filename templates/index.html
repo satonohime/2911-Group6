@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/static/css/styles.css">
     <title>Index</title>
 </head>
 <body>
     <div class="container">
       <header>
+        <nav class="navbar">
         <p>My Media List</p>
-        <nav>
           <ul>
             <li><a href="#">About</a></li>
           </ul>
         </nav>
       </header>
+      <div class="main">
       <main>
-        <button id="addBtn">+</button>
+        <button id="addBtn">Add a Media</button>
+        <div class="infoTable">
         {% for type in types %}
           {% if manager.list_by_type(type.name) != None %}
           <h1>{{type.name.capitalize()}}</h1>
@@ -47,8 +49,10 @@
           </table>
           {% endif %}
         {% endfor %}
+      </div>
+        <footer class="foot"><p>Team Watermelon</p></footer>
       </main>
-      <footer><p>Team Watermelon</p></footer>
     </div>
+  </div>
   </body>
   </html>

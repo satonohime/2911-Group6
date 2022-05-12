@@ -8,83 +8,90 @@
 */
 
 :root {
-    --blush: #f9b4ab;
-    --cream: #FDEBD3;
-    --blue: #264E70;
-    --dark_green: #679186;
-    --light_green: #BBD4CE;
+  --blush: #f9b4ab;
+  --cream: #FDEBD3;
+  --blue: #264E70;
+  --dark_green: #679186;
+  --light_green: #BBD4CE;
 }
 
 * {
-    margin: 0px;
-    font-size:15px;
+  margin: 0px;
+  font-size:15px;
+  text-decoration: none;
+  list-style: none;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color: var(--blush);
-  }
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5rem;
-    padding: 20px;
-  }
-  
-header p {
-    font-weight: 500;
-    font-size: 3rem;
-    color: var(--grey);
-  }
-  
-header ul {
-    display: flex;
-    gap: 10px;
-  }
-  
-header li {
-    list-style: none;
-  }
-  
-header a {
-    text-decoration: none;
-  
-  
-    font-size: 2rem;
-  }
-  
-header a:hover {
-    text-decoration: underline;
-  }
-
-main {
-    display:flex;
-    background-color:var(--red);
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-footer {
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-footer p {
-    font-weight: 500;
-    font-size: 1.6rem;
-    color: var(--grey);
-    align-self: center;
-  }
-
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+html{
+background-color: var(--light_green);
 }
 
+.navbar{
+display: flex;
+justify-content: center;
+padding-top: 25px;
+background-color: var(--dark_green);
+padding-bottom: 25px;
+font-size: 100px;
+font-family: 'Fira Sans', sans-serif;
+}
+
+.main{
+background-color: var(--light_green);
+display: flex;
+justify-content: center;
+padding-top: 50px;
+padding-bottom: 50px;
+font-family: 'Fira Sans', sans-serif;
+}
+
+
+
+.foot{
+display: flex;
+justify-content: center;
+padding-top: 250px;
+}
+
+
+
+
+#addBtn{
+margin-left: 150px;
+}
+
+
+
+.infoTable{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+
+
+button{
+background-color: var(--blush);
+border: none;
+border-radius: 5px;
+}
+
+
+button:hover{
+background-color: var(--cream);
+}
+
+h1 {
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+
+form {
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.CreateButtons {
+  font-family: 'Fira Sans', sans-serif;
+  padding-top: 10px;
+}
