@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Edit</title>
-</head>
-<body>
-    <div class="container">
-      <header>
-        <p>My Media List</p>
-        <nav>
-          <ul>
-            <li><a href="#">About</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <h1>Edit Entry</h1>
-            <form>
-            <label for="name">Name:</label><br>
-            <input type="text" name="name"><br>
-            <label for="field1">Field 1:</label><br>
-            <input type="text" name="field1"><br>
-            <label for="field2">Field 2:</label><br>
-            <input type="text" name="field2"><br>
-            <label for="field3">Field 3:</label><br>
-            <input type="text" name="field3"><br>
-            </form>
-        <button>Cancel</button>
-        <button>Apply Changes</button>
-      <footer><p>Team Watermelon</p></footer>
-    </div>
-  </body>
-  </html>
 
-  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro:wght@200&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Edit</title>
+</head>
+
+<body>
+  <h1 class="modify-page-h1">Edit Entry</h1>
+  <input type="hidden" id="typeNameHidden" value="{{data.type.name}}">
+  <input type="hidden" id="entryNameHidden" value="{{data.name}}">
+  <form id="editform">
+    <input type="hidden" name="type" value="{{data.type.name}}">
+    <label for="name">Name</label><br>
+    <input type="text" name="name" id="name" value="{{data.name}}"><br>
+    <label for="field_1">{{data.type.field_1.capitalize()}}</label><br>
+    <input type="text" name="field_1" id="field_1" value="{{data.field_1}}"><br>
+    <label for="field_2">{{data.type.field_2.capitalize()}}</label><br>
+    <input name="field_2" id="field_2" value="{{data.field_2}}"><br>
+    <label for="field_3">{{data.type.field_3.capitalize()}}</label><br>
+    <input name="field_3" id="field_3" value="{{data.field_3}}"><br>
+    <div class="CreateButtons">
+      <button class="Cancel">Cancel</button>
+      <button class="ApplyChanges">Apply Changes</button>
+    </div>
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('editform').addEventListener('submit', handleform)
+      document.getElementsByClassName('Cancel').addEventListener('onclick', goBack)
+    });
+    function goBack(ev) {
+      ev.preventDefault
+      var url = "/"
+      window.location = url
+    }
+    function handleform(ev) {
+      ev.preventDefault(); //stop page reloading
+      let myform = ev.target;
+      let fd = new FormData(myform);
+
+      typeName = document.getElementById('typeNameHidden').value
+      entryName = document.getElementById('entryNameHidden').value
+
+      let url = `/editentry/${typeName}/${entryName}`
+      let req = new Request(url, {
+        body: fd,
+        method: 'PUT',
+      });
+      fetch(req)
+        .then(result => {
+          var url = "/"
+          window.location = url
+        })
+    }
+  </script>
+</body>
+
+</html>

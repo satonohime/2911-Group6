@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>Create an Entry</title>
-  </head>
-  <body>
-      <h1>Create a Media Entry</h1>
-      <form action="/templates/index.html">
-        <label for="Title">Title:</label><br>
-        <input type="text" id="Title" name="Title" value=""><br>
-        <label for="Author">Author:</label><br>
-        <input type="text" id="Author" name="Author" value=""><br>
-        <label for="Publisher">Publisher:</label><br>
-        <input type="text" id="Publisher" name="Publisher" value=""><br>
-        <label for="Genre">Genre:</label><br>
-        <input type="text" id="Genre" name="Genre" value=""><br>
-        <div class="CreateButtons">
-        <button class="Cancel">Cancel</button>
-        <button class="CreateEntry">Create Entry</button>
-        <div></div>
-      </form> 
-  </body>
-  </html>
+</head>
+
+<body>
+  <h1 class="modify-page-h1">Create a Media Entry</h1>
+  <form action="/updated" method="post">
+    <input type="hidden" name="type" value="{{type.name}}">
+    <label for="name">Name</label><br>
+    <input type="text" name="name" id="name"><br>
+    <label for="field_1">{{type.field_1.capitalize()}}</label><br>
+    <input type="text" name="field_1" id="field_1"><br>
+    <label for="field_2">{{type.field_2.capitalize()}}</label><br>
+    <input type="text" name="field_2" id="field_2"><br>
+    <label for="field_3">{{type.field_3.capitalize()}}</label><br>
+    <input type="text" name="field_3" id="field_3"><br>
+    <div class="CreateButtons">
+      <button class="Cancel">Cancel</button>
+      <button class="ApplyChanges">Apply Changes</button>
+    </div>
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementsByClassName('Cancel').addEventListener('onclick', goBack)
+    });
+    function goBack(ev) {
+      ev.preventDefault
+      var url = "/"
+      window.location = url
+    }
+  </script>
+</body>
+
+</html>

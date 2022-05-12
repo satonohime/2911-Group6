@@ -83,7 +83,11 @@ background-color: var(--cream);
 h1 {
   font-family: 'Fira Sans', sans-serif;
   text-align: center;
-  padding-top: 50px;
+}
+
+.modify-page-h1 {
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 form {
