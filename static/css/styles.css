@@ -32,9 +32,20 @@ justify-content: center;
 padding-top: 25px;
 background-color: var(--dark_green);
 padding-bottom: 25px;
-font-size: 100px;
+font-size: 10rem;
 font-family: 'Fira Sans', sans-serif;
 }
+/* table, th, td {
+  border: 6px solid var(--light_green);
+  border-collapse: collapse;
+  border-radius: 10px;
+} */
+/* td {
+  background-color: #d1b3c4;
+}
+th{
+  background-color: #ae8ea0;
+} */
 
 .main{
 background-color: var(--light_green);
