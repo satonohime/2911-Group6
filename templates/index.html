@@ -1,69 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Index</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Index</title>
 </head>
+
 <body>
-    <div class="container">
-      <header>
-        <nav class="navbar">
+  <div class="container">
+    <header>
+      <nav class="navbar">
         <h1>My Media List</h1>
-          <ul>
-            <li><a href="#">About</a></li>
-          </ul>
-        </nav>
-      </header>
-      <div class="main">
+        <ul>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main">
       <main>
-        
+
         <form action="/addentry" method="post">
-          
           <select name="medias" id="medias">
-              <option value="select_media">Select a Media Type</option>
-              <option value="book">Book</option>
-              <option value="music">Music</option>
-              <option value="game">Game</option>
+            <option value="select_media">Select a Media Type</option>
+            <option value="book">Book</option>
+            <option value="music">Music</option>
+            <option value="game">Game</option>
           </select>
           <button id="addBtn">Add a Media</button>
         </form method='get'>
         <div class="infoTable">
-        {% for type in types %}
+          {% for type in types %}
           {% if manager.list_by_type(type.name) != None %}
-        <h1>{{type.name.capitalize()}}</h1>
-        <table>
+          <h1>{{type.name.capitalize()}}</h1>
+          <table>
             <tr>
-                <!-- <th><a href=#>Type</a></th> -->
-                <th>Name</th>
-                <th>{{type.field_1.capitalize()}}</th>
-                <th>{{type.field_2.capitalize()}}</th>
-                <th>{{type.field_3.capitalize()}}</th>
+              <!-- <th><a href=#>Type</a></th> -->
+              <th>Name</th>
+              <th>{{type.field_1.capitalize()}}</th>
+              <th>{{type.field_2.capitalize()}}</th>
+              <th>{{type.field_3.capitalize()}}</th>
             </tr>
             {% for entry in manager.list_by_type(type.name) %}
-            <tr class="tableRow">
-                <td><a href="/{{type.name}}/{{entry.name}}">{{entry.name}}</a></td>
-                <td>{{entry.field_1}}</td>
-                <td>{{entry.field_2}}</td>
-                <td>{{entry.field_3}}</td>
-                <td>
-                  <form action="/editentry/{{type.name}}/{{entry.name}}" method="get"><Button>Edit</Button>
-                  </form></td>
-                <td><Button>Delete</Button></td>
+            <tr class="tableRow" name="{{type.name}}">
+              <td><a href="/{{type.name}}/{{entry.name}}">{{entry.name}}</a></td>
+              <td>{{entry.field_1}}</td>
+              <td>{{entry.field_2}}</td>
+              <td>{{entry.field_3}}</td>
+              <td>
+                <form action="/editentry/{{type.name}}/{{entry.name}}" method="get"><Button>Edit</Button>
+                </form>
+              </td>
+              <td><Button class="del-button">Delete</Button></td>
             </tr>
             {% endfor %}
-        </table>
+          </table>
           {% endif %}
-        {% endfor %}
-      </div>
-        <footer class="foot"><p>Team Watermelon</p></footer>
+          {% endfor %}
+        </div>
+        <footer class="foot">
+          <p>Team Watermelon</p>
+        </footer>
       </main>
     </div>
-  </div>
-  </body>
-  </html>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.del-button');
+    buttons.forEach(button => {
+      button.addEventListener('click', routeToDelete);
+    });
+  });
+  function routeToDelete(ev) {
+    ev.preventDefault
+    let button = ev.target
+    let my_td = button.parentNode;
+    let my_tr = my_td.parentNode;
+    let typeName = my_tr.getAttribute("name");
+    let entryName = my_tr.querySelector("a").textContent
+    const url = `/deleteentry/${typeName}/${entryName}`
+    fetch(url, { method: 'DELETE' }).then(result => {
+      var url = "/";
+      window.location = url;
+    })
+  }
+</script>
+
+</html>

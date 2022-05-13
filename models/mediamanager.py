@@ -120,10 +120,12 @@ class MediaManager:
     """
     Find media entry with specified name and type
     """
+    
     def view_media(self, name, type):
+        if name == "" or type == "":
+            raise ValueError
         for media in self.media:
             if media.type.name == type and media.name == name:
                 return media
         return None
-
         

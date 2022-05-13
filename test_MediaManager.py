@@ -39,7 +39,6 @@ def test_add_media_invalid(med_manager):
     with pytest.raises(ValueError):
         med_manager.add_media("test7", "invalid_type", "chicken", "chicken", "chicken")
 
-
 def test_delete_media(med_manager):
     assert len(med_manager.media) == 4
     assert med_manager.delete_media("test1", "test_type1")
@@ -56,6 +55,23 @@ def test_list_by_type(med_manager):
 
 def test_list_by_type_None(med_manager):
     assert med_manager.list_by_type("test_type3") is None
+
+def test_view_media(med_manager):
+    result = med_manager.view_media('test1', 'test_type1')
+    result2 = med_manager.view_media('test77', 'test_type1')
+    assert result is not None
+    assert result.name == "test1"
+    assert result.type.name == "test_type1"
+    assert result.field_1 == "test_f1"
+    assert result.field_2 == "test_f2"
+    assert result.field_3 == "test_f3"
+    assert result2 is None
+
+def test_view_media_invalid(med_manager):
+    with pytest.raises(ValueError):
+        med_manager.view_media('test1', "")
+    with pytest.raises(ValueError):
+        med_manager.view_media("", "test_type1")
 
 @patch("builtins.open", new_callable=mock_open)
 def test_save(mock_file, med_manager):

@@ -1,1 +1,4 @@
-[{"name": "book1", "type": "book", "author": "a1", "publisher": "pub1", "genre": "Fantasy"}, {"name": "book2", "type": "book", "author": "a2", "publisher": "pub2", "genre": "Action"}, {"name": "book3", "type": "book", "author": "a3", "publisher": "pub3", "genre": "Non-Fiction"}, {"name": "book4", "type": "book", "author": "a4", "publisher": "pub4", "genre": "Thriller"}]
+[{"name": "book1", "type": "book", "author": "a1", "publisher": "pub1", "genre": "Fantasy"}, 
+    {"name": "book2", "type": "book", "author": "a2", "publisher": "pub2", "genre": "Action"},
+    {"name": "book3", "type": "book", "author": "a3", "publisher": "pub3", "genre": "Romance"},
+    {"name": "book4", "type": "book", "author": "a4", "publisher": "pub4", "genre": "Thriller"}]

@@ -90,3 +90,23 @@ border-radius: 5px;
 button:hover{
 background-color: var(--cream);
 }
+
+h1 {
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.modify-page-h1 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+form {
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.CreateButtons {
+  font-family: 'Fira Sans', sans-serif;
+  padding-top: 10px;
+}

@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>My Media List</title>
 </head>
+
 <body>
   <div class="info">
     <div class="container">
       <header>
         <nav class="navbar">
-        <p>My Media List</p>
+          <h1>My Media List</h1>
           <ul>
             <li><a href="#">About</a></li>
           </ul>
         </nav>
       </header>
       <div class="main">
-    <main>
-        <ul>
+        <main>
+          <ul>
             {% for key, val in data.items() %}
             <h3>{{key.capitalize()}}: {{val.capitalize()}}</h3>
             {% endfor %}
-        </ul>
-    </main>
-  </div>
+          </ul>
+        </main>
+      </div>
 </body>
+
 </html>
