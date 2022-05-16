@@ -17,67 +17,68 @@
 
 * {
   margin: 0px;
-  font-size:15px;
+  font-size: 15px;
   text-decoration: none;
   list-style: none;
 }
 
-html{
-background-color: var(--light_green);
+html {
+  background-color: var(--light_green);
 }
 
-.navbar{
-display: flex;
-justify-content: center;
-padding-top: 25px;
-background-color: var(--dark_green);
-padding-bottom: 25px;
-font-size: 100px;
-font-family: 'Fira Sans', sans-serif;
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  background-color: var(--dark_green);
+  padding-bottom: 25px;
+  font-size: 100px;
+  font-family: 'Fira Sans', sans-serif;
 }
 
-.main{
-background-color: var(--light_green);
-display: flex;
-justify-content: center;
-padding-top: 50px;
-padding-bottom: 50px;
-font-family: 'Fira Sans', sans-serif;
-}
-
-
-
-.foot{
-display: flex;
-justify-content: center;
-padding-top: 250px;
+.main {
+  background-color: var(--light_green);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 
 
-
-#addBtn{
-margin-left: 150px;
+.foot {
+  display: flex;
+  justify-content: center;
+  padding-top: 250px;
 }
 
 
 
-.infoTable{
-display: flex;
-justify-content: center;
-flex-direction: column;
+
+#addBtn {
+  margin-left: 150px;
 }
 
 
-button{
-background-color: var(--blush);
-border: none;
-border-radius: 5px;
+
+.infoTable {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
-button:hover{
-background-color: var(--cream);
+button {
+  background-color: var(--blush);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+
+button:hover {
+  background-color: var(--cream);
 }
 
 h1 {
@@ -96,6 +97,42 @@ form {
 }
 
 .CreateButtons {
+  display: flex;
   font-family: 'Fira Sans', sans-serif;
   padding-top: 10px;
+  justify-content: center;
 }
+
+#Cancel {
+  margin-right: 10px;
+}
+
+#tableTitle {
+  padding-top: 20px;
+  font-size: 150%;
+}
+
+td {
+  padding-right: 10px;
+  text-align: left;
+  min-width: 100px;
+}
+
+th {
+  padding-top: 10px;
+  text-align: left;
+}
+
+.entryAttribute {
+  font-size: 120%;
+  padding: 20px;
+}
+
+#linkToHome {
+  text-decoration: none;
+}
+
+a, a:hover, a:visited, a:active {
+  color: var(--blue);
+  text-decoration: none;
+ }

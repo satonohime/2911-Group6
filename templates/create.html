@@ -13,7 +13,7 @@
 
 <body>
   <h1 class="modify-page-h1">Create a Media Entry</h1>
-  <form action="/updated" method="post">
+  <form id="createForm" action="/updated" method="post">
     <input type="hidden" name="type" value="{{type.name}}">
     <label for="name">Name</label><br>
     <input type="text" name="name" id="name"><br>
@@ -23,19 +23,24 @@
     <input type="text" name="field_2" id="field_2"><br>
     <label for="field_3">{{type.field_3.capitalize()}}</label><br>
     <input type="text" name="field_3" id="field_3"><br>
-    <div class="CreateButtons">
-      <button class="Cancel">Cancel</button>
-      <button class="ApplyChanges">Apply Changes</button>
-    </div>
   </form>
+    <div class="CreateButtons">
+      <button id="Cancel">Cancel</button>
+      <button id="Create">Apply Changes</button>
+    </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementsByClassName('Cancel').addEventListener('onclick', goBack)
+      document.getElementById('Cancel').addEventListener('click', goBack)
+      document.getElementById('Create').addEventListener('click', submitForm)
     });
     function goBack(ev) {
       ev.preventDefault
       var url = "/"
       window.location = url
+    }
+    function submitForm(ev) {
+      ev.preventDefault
+      document.getElementById('createForm').submit()
     }
   </script>
 </body>

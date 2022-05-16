@@ -15,10 +15,8 @@
 
 <body>
   <h1 class="modify-page-h1">Edit Entry</h1>
-  <input type="hidden" id="typeNameHidden" value="{{data.type.name}}">
-  <input type="hidden" id="entryNameHidden" value="{{data.name}}">
+  <input type="hidden" id="keyValueHidden" value="{{data.local_key}}">
   <form id="editform">
-    <input type="hidden" name="type" value="{{data.type.name}}">
     <label for="name">Name</label><br>
     <input type="text" name="name" id="name" value="{{data.name}}"><br>
     <label for="field_1">{{data.type.field_1.capitalize()}}</label><br>
@@ -27,16 +25,12 @@
     <input name="field_2" id="field_2" value="{{data.field_2}}"><br>
     <label for="field_3">{{data.type.field_3.capitalize()}}</label><br>
     <input name="field_3" id="field_3" value="{{data.field_3}}"><br>
-    <div class="CreateButtons">
-      <button class="Cancel">Cancel</button>
-      <button class="ApplyChanges">Apply Changes</button>
-    </div>
   </form>
+    <div class="CreateButtons">
+      <button id="Cancel">Cancel</button>
+      <button id="Apply">Apply Changes</button>
+    </div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('editform').addEventListener('submit', handleform)
-      document.getElementsByClassName('Cancel').addEventListener('onclick', goBack)
-    });
     function goBack(ev) {
       ev.preventDefault
       var url = "/"
@@ -44,13 +38,12 @@
     }
     function handleform(ev) {
       ev.preventDefault(); //stop page reloading
-      let myform = ev.target;
+      let myform = document.getElementById('editform');
       let fd = new FormData(myform);
 
-      typeName = document.getElementById('typeNameHidden').value
-      entryName = document.getElementById('entryNameHidden').value
+      keyValue = document.getElementById('keyValueHidden').value
 
-      let url = `/editentry/${typeName}/${entryName}`
+      let url = `/editentry/${keyValue}`
       let req = new Request(url, {
         body: fd,
         method: 'PUT',
@@ -61,6 +54,10 @@
           window.location = url
         })
     }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('Apply').addEventListener('click', handleform)
+      document.getElementById('Cancel').addEventListener('click', goBack)
+    });
   </script>
 </body>
 

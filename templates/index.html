@@ -28,16 +28,16 @@
         <form action="/addentry" method="post">
           <select name="medias" id="medias">
             <option value="select_media">Select a Media Type</option>
-            <option value="book">Book</option>
-            <option value="music">Music</option>
-            <option value="game">Game</option>
+            {% for type in types %} 
+              <option value="{{type.name}}">{{type.name.capitalize()}}</option>
+            {% endfor %}
           </select>
           <button id="addBtn">Add a Media</button>
         </form method='get'>
         <div class="infoTable">
           {% for type in types %}
           {% if manager.list_by_type(type.name) != None %}
-          <h1>{{type.name.capitalize()}}</h1>
+          <h2 id="tableTitle">{{type.name.capitalize()}}</h2>
           <table>
             <tr>
               <!-- <th><a href=#>Type</a></th> -->
@@ -47,16 +47,19 @@
               <th>{{type.field_3.capitalize()}}</th>
             </tr>
             {% for entry in manager.list_by_type(type.name) %}
-            <tr class="tableRow" name="{{type.name}}">
-              <td><a href="/{{type.name}}/{{entry.name}}">{{entry.name}}</a></td>
+            <tr class="tableRow">
+              <td><a href="/{{entry.local_key}}">{{entry.name}}</a></td>
               <td>{{entry.field_1}}</td>
               <td>{{entry.field_2}}</td>
               <td>{{entry.field_3}}</td>
               <td>
-                <form action="/editentry/{{type.name}}/{{entry.name}}" method="get"><Button>Edit</Button>
+                <form action="/editentry/{{entry.local_key}}" method="get"><Button>Edit</Button>
                 </form>
               </td>
-              <td><Button class="del-button">Delete</Button></td>
+              <td>
+                <input type="hidden" value="{{entry.local_key}}">
+                <Button class="del-button">Delete</Button>
+              </td>
             </tr>
             {% endfor %}
           </table>
@@ -70,25 +73,22 @@
     </div>
 </body>
 <script>
+  function routeToDelete(ev) {
+    ev.preventDefault
+    parent = ev.target.parentNode
+    keyValue = parent.children[0].value
+    const url = `/deleteentry/${keyValue}`
+    fetch(url, { method: 'DELETE' }).then(result => {
+      var url = "/";
+      window.location = url;
+    })
+  }
   document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.del-button');
     buttons.forEach(button => {
       button.addEventListener('click', routeToDelete);
     });
   });
-  function routeToDelete(ev) {
-    ev.preventDefault
-    let button = ev.target
-    let my_td = button.parentNode;
-    let my_tr = my_td.parentNode;
-    let typeName = my_tr.getAttribute("name");
-    let entryName = my_tr.querySelector("a").textContent
-    const url = `/deleteentry/${typeName}/${entryName}`
-    fetch(url, { method: 'DELETE' }).then(result => {
-      var url = "/";
-      window.location = url;
-    })
-  }
 </script>
 
 </html>
