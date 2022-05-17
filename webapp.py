@@ -32,6 +32,10 @@ def homepage():
         200,
     )
 
+@app.route("/about", methods=["GET"])
+def about():
+    return (render_template("about.html"),200)
+
 
 @app.route("/updated", methods=["POST"])
 def homepage_updated():

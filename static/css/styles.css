@@ -20,6 +20,7 @@
   font-size: 15px;
   text-decoration: none;
   list-style: none;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 html {
@@ -34,41 +35,29 @@ header{
   justify-content: space-between;
 }
 
-
-.topnav{
-  display: flex;
-  flex-direction: row;
+header {
+  top:0px;
+  position:sticky;
 }
-
-.topnav a {
-  padding-top: 25px;
-  padding-left: 25px;
-  padding-bottom: 25px;
-}
-
-.topnav-right{
-  display: flex;
-  flex-direction: row;
-}
-
-.topnav-right a{
-  padding-left: 25px;
-}
-
-.topnav-about{
-  padding-top: 25px;
-}
-
-
 
 .navbar{
 display: flex;
 justify-content: center;
-padding-top: 25px;
+padding-top: 0px;
 background-color: var(--dark_green);
-padding-bottom: 25px;
+padding-bottom: 0px;
 font-size: 10rem;
 font-family: 'Fira Sans', sans-serif;
+align-items:center;
+}
+
+.nav-img-right{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#linkToHome{
+  padding-left: 25px;
 }
 /* table, th, td {
   border: 6px solid var(--light_green);
@@ -241,8 +230,10 @@ a, a:hover, a:visited, a:active {
 .members{
   margin-top: 50px;
   display: flex;
+  justify-self: center;
   flex-direction: row;
   justify-content: center;
+  max-height: 300px;
 }
 
 .members div{
