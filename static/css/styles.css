@@ -135,6 +135,7 @@ h1 {
 form {
   font-family: 'Fira Sans', sans-serif;
   text-align: center;
+  padding: 5px;
 }
 
 .CreateButtons {

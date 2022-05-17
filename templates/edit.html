@@ -29,18 +29,21 @@
   <input type="hidden" id="keyValueHidden" value="{{data.local_key}}">
   <form id="editform">
     <label for="name">Name</label><br>
-    <input type="text" name="name" id="name" value="{{data.name}}"><br>
+    <input type="text" name="name" id="name" value="{{data.name}}" required><br>
     <label for="field_1">{{data.type.field_1.capitalize()}}</label><br>
     <input type="text" name="field_1" id="field_1" value="{{data.field_1}}"><br>
     <label for="field_2">{{data.type.field_2.capitalize()}}</label><br>
     <input name="field_2" id="field_2" value="{{data.field_2}}"><br>
     <label for="field_3">{{data.type.field_3.capitalize()}}</label><br>
     <input name="field_3" id="field_3" value="{{data.field_3}}"><br>
-  </form>
     <div class="CreateButtons">
-      <button id="Cancel">Cancel</button>
       <button id="Apply">Apply Changes</button>
     </div>
+  </form>
+  <form action="/" method="get">
+    <button id="Cancel">Cancel</button>
+  </form>
+    
   <script>
     function goBack(ev) {
       ev.preventDefault
