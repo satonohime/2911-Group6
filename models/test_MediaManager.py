@@ -8,7 +8,6 @@ JSON_FILE = [
     {"_id": 4, "name": "test4", "type": "test_type2", "f1": "dog", "f2": "cat", "f3": "bird"}
 ]
 
-
 @pytest.fixture
 def med_manager():
     med_manager = MediaManager(JSON_FILE)
