@@ -29,7 +29,7 @@
   <input type="hidden" id="keyValueHidden" value="{{data.local_key}}">
   <form id="editform">
     <label for="name">Name</label><br>
-    <input type="text" name="name" id="name" value="{{data.name}}" required><br>
+    <input type="text" name="name" id="name" value="{{data.name}}"><br>
     <label for="field_1">{{data.type.field_1.capitalize()}}</label><br>
     <input type="text" name="field_1" id="field_1" value="{{data.field_1}}"><br>
     <label for="field_2">{{data.type.field_2.capitalize()}}</label><br>
@@ -46,7 +46,7 @@
     
   <script>
     function goBack(ev) {
-      ev.preventDefault
+      ev.preventDefault()
       var url = "/"
       window.location = url
     }
@@ -55,18 +55,22 @@
       let myform = document.getElementById('editform');
       let fd = new FormData(myform);
 
-      keyValue = document.getElementById('keyValueHidden').value
-
-      let url = `/editentry/${keyValue}`
-      let req = new Request(url, {
-        body: fd,
-        method: 'PUT',
-      });
-      fetch(req)
-        .then(result => {
-          var url = "/"
-          window.location = url
-        })
+      if (fd.get("name") == "" || !/[a-zA-Z]/.test(fd.get("name"))) {
+        alert("Name is required")
+        return
+      } else {
+        keyValue = document.getElementById('keyValueHidden').value
+        let url = `/editentry/${keyValue}`
+        let req = new Request(url, {
+          body: fd,
+          method: 'PUT',
+        });
+        fetch(req)
+          .then(result => {
+            var url = "/"
+            window.location = url
+          })
+      }
     }
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('Apply').addEventListener('click', handleform)
