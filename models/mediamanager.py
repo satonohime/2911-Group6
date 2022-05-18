@@ -110,7 +110,7 @@ class MediaManager:
         if len(media_entries) == 0:
             return None
         else:
-            return media_entries
+            return sorted(media_entries, key=lambda x: x.name.lower())
 
     """
     Find media entry with specified key
