@@ -37,7 +37,7 @@ class MediaManager:
                 m_type = self.search_for_type(data["type"])
             
             data_keys = [*data]
-            self.media.append(Media(data["name"], m_type, data[data_keys[3]], data[data_keys[4]], data[data_keys[5]], data["_id"]))
+            self.media.append(Media(data["name"], m_type, data[data_keys[3]], data[data_keys[4]], data[data_keys[5]], str(data["_id"])))
 
     """
     Set local keys of media entries
