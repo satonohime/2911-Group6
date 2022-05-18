@@ -1,6 +1,5 @@
-from models.media import Media
-from models.mediatype import MediaType
-import json
+from media import Media
+from mediatype import MediaType
 
 PRESET_TYPE_DATA = [
     ["music", "artist", "album", "genre"],

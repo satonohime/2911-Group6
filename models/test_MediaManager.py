@@ -1,7 +1,5 @@
-from pyparsing import empty
-from models.mediamanager import MediaManager
+from mediamanager import MediaManager
 import pytest
-from unittest.mock import mock_open, patch
 
 JSON_FILE = [
     {"_id": 1, "name": "test1", "type": "test_type1", "field_1": "test_f1", "field_2": "test_f2", "field_3": "test_f3"}, 

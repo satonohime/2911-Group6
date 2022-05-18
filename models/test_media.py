@@ -1,5 +1,5 @@
-from models.media import Media
-from models.mediatype import MediaType
+from media import Media
+from mediatype import MediaType
 import pytest
 
 
