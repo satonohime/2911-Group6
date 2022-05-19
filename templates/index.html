@@ -55,11 +55,11 @@
               <td>{{entry.field_1}}</td>
               <td>{{entry.field_2}}</td>
               <td>{{entry.field_3}}</td>
-              <td>
+              <td class = "td-button">
                 <form action="/editentry/{{entry.local_key}}" method="get"><Button>Edit</Button>
                 </form>
               </td>
-              <td>
+              <td class = "td-button">
                 <input type="hidden" value="{{entry.local_key}}">
                 <Button class="del-button">Delete</Button>
               </td>

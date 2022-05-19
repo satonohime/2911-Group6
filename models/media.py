@@ -1,5 +1,4 @@
-from mediatype import MediaType
-
+from .mediatype import MediaType
 
 class Media:
     """

@@ -1,5 +1,5 @@
-from media import Media
-from mediatype import MediaType
+from .media import Media
+from .mediatype import MediaType
 
 PRESET_TYPE_DATA = [
     ["music", "artist", "album", "genre"],
