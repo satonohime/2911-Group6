@@ -1,4 +1,5 @@
-from mediamanager import MediaManager
+from models.mediamanager import MediaManager
+from models.media import Media
 import pytest
 
 JSON_FILE = [
