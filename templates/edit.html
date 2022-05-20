@@ -14,17 +14,6 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <h1><a href="/" id="linkToHome">My Media List</a></h1>
-      <ul>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-img-right">
-      <a href="https://github.com/satonohime/2911-Group6"><img src="/static/imgs/github.png" alt="github"></a>
-    </div>
-  </header>
   <h1 class="modify-page-h1">Edit Entry</h1>
   <input type="hidden" id="keyValueHidden" value="{{data.local_key}}">
   <form id="editform">
@@ -36,22 +25,14 @@
     <input name="field_2" id="field_2" value="{{data.field_2}}"><br>
     <label for="field_3">{{data.type.field_3.capitalize()}}</label><br>
     <input name="field_3" id="field_3" value="{{data.field_3}}"><br>
+  </form>
     <div class="CreateButtons">
-<<<<<<< HEAD
       <button id="Cancel" class="edit-button-cancel">Cancel</button>
       <button id="Apply" class="edit-button-submit">Apply Changes</button>
-=======
-      <button id="Apply">Apply Changes</button>
->>>>>>> 091d98f924dbc69b691f42942824f734c4e91818
     </div>
-  </form>
-  <form action="/" method="get">
-    <button id="Cancel">Cancel</button>
-  </form>
-    
   <script>
     function goBack(ev) {
-      ev.preventDefault()
+      ev.preventDefault
       var url = "/"
       window.location = url
     }
@@ -60,22 +41,18 @@
       let myform = document.getElementById('editform');
       let fd = new FormData(myform);
 
-      if (fd.get("name") == "" || !/[a-zA-Z]/.test(fd.get("name"))) {
-        alert("Name is required")
-        return
-      } else {
-        keyValue = document.getElementById('keyValueHidden').value
-        let url = `/editentry/${keyValue}`
-        let req = new Request(url, {
-          body: fd,
-          method: 'PUT',
-        });
-        fetch(req)
-          .then(result => {
-            var url = "/"
-            window.location = url
-          })
-      }
+      keyValue = document.getElementById('keyValueHidden').value
+
+      let url = `/editentry/${keyValue}`
+      let req = new Request(url, {
+        body: fd,
+        method: 'PUT',
+      });
+      fetch(req)
+        .then(result => {
+          var url = "/"
+          window.location = url
+        })
     }
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('Apply').addEventListener('click', handleform)
