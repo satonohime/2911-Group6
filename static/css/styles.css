@@ -15,6 +15,8 @@
   --blue: #264E70;
   --dark_green: #679186;
   --light_green: #BBD4CE;
+  --bold_pink: #FF6F87;
+  --dark_red: #6d1725;
 }
 
 * {
@@ -60,6 +62,13 @@ align-items:center;
 
 #linkToHome{
   padding-left: 25px;
+  color: black;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+#navAbout {
+  color: black;
+  text-decoration: none;
 }
 /* table, th, td {
   border: 6px solid var(--light_green);
@@ -107,6 +116,7 @@ th{
 
 table {
   width: 1000px;
+  border-collapse: collapse;
 }
 
 .td-button {
@@ -162,17 +172,23 @@ form {
 #tableTitle {
   padding-top: 20px;
   font-size: 150%;
+  color: var(--bold_pink);
 }
 
 td {
   padding-right: 10px;
+  padding-left: 10px;
   text-align: left;
   width:150px;
+  background-color: white;
 }
 
 th {
   padding-top: 10px;
+  padding-left: 10px;
   text-align: left;
+
+  background-color: var(--blush);
 }
 
 .entryAttribute {
@@ -184,10 +200,12 @@ th {
   text-decoration: none;
 }
 
-a, a:hover, a:visited, a:active {
-  color: var(--blue);
+
+
+td > a, a:hover, a:visited, a:active {
+  color: var(--dark_red);
   text-decoration: none;
- }
+}
 
 
 
