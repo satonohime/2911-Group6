@@ -103,7 +103,7 @@ def get_entry(local_key):
     entry = mediamnger.view_media(local_key)
     if entry is None:
         return "Entry not found", 404
-    return render_template("entry.html", data=entry.to_dict()), 200
+    return render_template("entry.html", data=entry.to_dict(), localkey = entry.local_key), 200
 
 
 if __name__ == "__main__":
