@@ -17,7 +17,7 @@
       <nav class="navbar">
         <h1><a href="/" id="linkToHome">My Media List</a></h1>
         <ul>
-          <li><a href="/about">About</a></li>
+          <li><a href="/about" id="navAbout">About</a></li>
         </ul>
       </nav>
       <div class="nav-img-right">
@@ -29,31 +29,27 @@
   <form id="createForm" action="/updated" method="post">
     <input type="hidden" name="type" value="{{type.name}}">
     <label for="name">Name</label><br>
-    <input type="text" name="name" id="name"><br>
+    <input type="text" name="name" id="name" required><br>
     <label for="field_1">{{type.field_1.capitalize()}}</label><br>
     <input type="text" name="field_1" id="field_1"><br>
     <label for="field_2">{{type.field_2.capitalize()}}</label><br>
     <input type="text" name="field_2" id="field_2"><br>
     <label for="field_3">{{type.field_3.capitalize()}}</label><br>
     <input type="text" name="field_3" id="field_3"><br>
-  </form>
     <div class="CreateButtons">
       <button id="Cancel" class="form-cancel-button">Cancel</button>
       <button id="Create" class="form-submit-button">Create Entry</button>
     </div>
+  </form>
+    
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('Cancel').addEventListener('click', goBack)
-      document.getElementById('Create').addEventListener('click', submitForm)
     });
     function goBack(ev) {
       ev.preventDefault
       var url = "/"
       window.location = url
-    }
-    function submitForm(ev) {
-      ev.preventDefault
-      document.getElementById('createForm').submit()
     }
   </script>
 
