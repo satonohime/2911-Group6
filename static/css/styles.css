@@ -3,6 +3,8 @@
     navy blue: #264E70
     watermelon green: #679186
     light green: #BBD4CE
+    submit green: #44CF6C
+    cancel red: #D62828
 
 
 */
@@ -285,3 +287,96 @@ a, a:hover, a:visited, a:active {
 #christina-imgs{
   padding-top: 25px;
 }
+
+/* Create and Edit HTML PAGES */
+
+
+.modify-page-h1{
+  font-size: 30px;
+}
+
+#createForm{
+  padding-top: 100px;
+}
+
+#editform{
+  padding-top: 100px;
+}
+
+input{
+  border-radius: 5px;
+  width: 200px;
+  height: 25px  ;
+}
+
+
+.form-submit-button{
+  background-color: #65be7f;
+  margin-left: 50px;
+}
+
+
+.form-cancel-button{
+  background-color: #ce5454;
+}
+
+.CreateButtons{
+  padding-top: 50px;
+}
+
+
+.form-submit-button:hover{
+background-color: #2fb056;
+transition: all 0.5s ease-in-out;
+cursor: pointer;
+}
+
+
+.form-cancel-button:hover{
+background-color: #b73333;
+transition: all 0.5s ease-in-out;
+cursor: pointer;
+}
+
+
+.create-button-cancel{
+  background-color: #d32626;
+}
+
+.create-button-submit{
+  background-color: #2fb056;
+  margin-left: 40px;
+}
+
+#createForm input{
+  margin-top: 20px;
+}
+
+
+#editform input{
+  margin-top: 20px;
+}
+
+
+.edit-button-cancel{
+  background-color: #ce5454;
+}
+
+.edit-button-submit{
+  background-color: #65be7f;
+  margin-left: 40px;
+}
+
+.edit-button-submit:hover{
+  background-color: #2fb056;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  }
+  
+  
+.edit-button-cancel:hover{
+  background-color: #b73333;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  }
+  
