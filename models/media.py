@@ -35,6 +35,5 @@ class Media:
             self.type.field_1: self.field_1,
             self.type.field_2: self.field_2,
             self.type.field_3: self.field_3,
-            "local_key": self.local_key
         }
 
