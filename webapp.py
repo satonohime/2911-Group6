@@ -32,6 +32,10 @@ def homepage():
         200,
     )
 
+@app.route("/about", methods=["GET"])
+def about():
+    return (render_template("about.html"),200)
+
 
 @app.route("/updated", methods=["POST"])
 def homepage_updated():
@@ -60,7 +64,7 @@ def edit_entry(local_key):
     entry_to_edit.field_2 = request.form["field_2"]
     entry_to_edit.field_3 = request.form["field_3"]
 
-    db.update_one({ "_id": entry_to_edit._id }, 
+    db.update_one({ "_id": ObjectId(entry_to_edit._id) }, 
             { "$set": { "name": entry_to_edit.name,
              entry_to_edit.type.field_1: entry_to_edit.field_1,
              entry_to_edit.type.field_2: entry_to_edit.field_2,
@@ -88,7 +92,7 @@ def edit_form_display(local_key):
 def delete_entry(local_key):
     mediamnger = init_manager()
     entry = mediamnger.view_media(local_key)
-    db.delete_one({ "_id": entry._id })
+    db.delete_one({ "_id": ObjectId(entry._id) })
     mediamnger.delete_media(local_key)
     return "", 201
 

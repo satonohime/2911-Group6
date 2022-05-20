@@ -1,7 +1,6 @@
-from pyparsing import empty
 from models.mediamanager import MediaManager
+from models.media import Media
 import pytest
-from unittest.mock import mock_open, patch
 
 JSON_FILE = [
     {"_id": 1, "name": "test1", "type": "test_type1", "field_1": "test_f1", "field_2": "test_f2", "field_3": "test_f3"}, 
@@ -9,7 +8,6 @@ JSON_FILE = [
     {"_id": 3, "name": "test3", "type": "test_type2", "f1": "dog", "f2": "cat", "f3": "bird"},
     {"_id": 4, "name": "test4", "type": "test_type2", "f1": "dog", "f2": "cat", "f3": "bird"}
 ]
-
 
 @pytest.fixture
 def med_manager():
