@@ -13,69 +13,67 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <nav class="navbar">
-        <h1><a href="/" id="linkToHome">My Media List</a></h1>
-        <ul>
-          <li><a href="/about" id="navAbout">About</a></li>
-        </ul>
-      </nav>
-      <div class="nav-img-right">
-        <a href="https://github.com/satonohime/2911-Group6"><img src="/static/imgs/github.png" alt="github"></a>
-      </div>
-    </header>
-    <div class="main">
-      <main>
-
-        <form id="mediaDropDownForm" action="/addentry" method="post">
-          <select name="medias" id="medias">
-            <option value="select_media">Select a Media Type</option>
-            {% for type in types %} 
-              <option value="{{type.name}}">{{type.name.capitalize()}}</option>
-            {% endfor %}
-          </select>
-          <button id="addBtn">Add a Media</button>
-        </form method='get'>
-        <div class="infoTable">
-          {% for type in types %}
-          {% if manager.list_by_type(type.name) != None %}
-          <h2 id="tableTitle">{{type.name.capitalize()}}</h2>
-          <table>
-            <tr>
-              <!-- <th><a href=#>Type</a></th> -->
-              <th>Name</th>
-              <th>{{type.field_1.capitalize()}}</th>
-              <th>{{type.field_2.capitalize()}}</th>
-              <th>{{type.field_3.capitalize()}}</th>
-              <th> </th>
-              <th> </th>
-            </tr>
-            {% for entry in manager.list_by_type(type.name) %}
-            <tr class="tableRow">
-              <td><a href="/{{entry.local_key}}">{{entry.name}}</a></td>
-              <td>{{entry.field_1}}</td>
-              <td>{{entry.field_2}}</td>
-              <td>{{entry.field_3}}</td>
-              <td class = "td-button">
-                <form action="/editentry/{{entry.local_key}}" method="get"><Button>Edit</Button>
-                </form>
-              </td>
-              <td class = "td-button">
-                <input type="hidden" value="{{entry.local_key}}">
-                <Button class="del-button">Delete</Button>
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
-          {% endif %}
-          {% endfor %}
-        </div>
-        <footer class="foot">
-          <div class="copyright"><small>Copyright &copy; 2022, Team Watermelon. GO AWAY @DESMOND</small> </div>
-        </footer>
-      </main>
+  <header>
+    <nav class="navbar">
+      <h1><a href="/" id="linkToHome">My Media List</a></h1>
+      <ul>
+        <li><a href="/about" id="navAbout">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-img-right">
+      <a href="https://github.com/satonohime/2911-Group6"><img src="/static/imgs/github.png" alt="github"></a>
     </div>
+  </header>
+  <div class="main">
+    <main>
+      <form id="mediaDropDownForm" action="/addentry" method="post">
+        <select name="medias" id="medias">
+          <option value="select_media">Select a Media Type</option>
+          {% for type in types %}
+          <option value="{{type.name}}">{{type.name.capitalize()}}</option>
+          {% endfor %}
+        </select>
+        <button id="addBtn">Add a Media</button>
+      </form method='get'>
+      <div class="infoTable">
+        {% for type in types %}
+        {% if manager.list_by_type(type.name) != None %}
+        <h2 id="tableTitle">{{type.name.capitalize()}}</h2>
+        <table>
+          <tr>
+            <!-- <th><a href=#>Type</a></th> -->
+            <th>Name</th>
+            <th>{{type.field_1.capitalize()}}</th>
+            <th>{{type.field_2.capitalize()}}</th>
+            <th>{{type.field_3.capitalize()}}</th>
+            <th> </th>
+            <th> </th>
+          </tr>
+          {% for entry in manager.list_by_type(type.name) %}
+          <tr class="tableRow">
+            <td><a href="/{{entry.local_key}}">{{entry.name}}</a></td>
+            <td>{{entry.field_1}}</td>
+            <td>{{entry.field_2}}</td>
+            <td>{{entry.field_3}}</td>
+            <td class="td-button">
+              <form action="/editentry/{{entry.local_key}}" method="get"><Button>Edit</Button>
+              </form>
+            </td>
+            <td class="td-button">
+              <input type="hidden" value="{{entry.local_key}}">
+              <Button class="del-button">Delete</Button>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <footer class="foot">
+        <div class="copyright"><small>Copyright &copy; 2022, Team Watermelon. GO AWAY @DESMOND</small> </div>
+      </footer>
+    </main>
+  </div>
 </body>
 <script>
   function routeToDelete(ev) {

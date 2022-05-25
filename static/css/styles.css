@@ -82,8 +82,17 @@ th{
   background-color: #ae8ea0;
 } */
 
-.main {
+body {
+  background-image: url("/static/imgs/watermelon2.png");
+  background-attachment: fixed;
   background-color: var(--light_green);
+}
+
+.bodyNotIndex {
+  height: 100vh;
+}
+
+.main {
   display: flex;
   justify-content: center;
   padding-top: 50px;
@@ -91,14 +100,11 @@ th{
   font-family: 'Fira Sans', sans-serif;
 }
 
-
-
 .foot {
   display: flex;
   justify-content: center;
   padding-top: 250px;
 }
-
 
 
 
