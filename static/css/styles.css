@@ -86,6 +86,7 @@ body {
   background-image: url("/static/imgs/watermelon2.png");
   background-attachment: fixed;
   background-color: var(--light_green);
+  min-height: 100vh;
 }
 
 .bodyNotIndex {
