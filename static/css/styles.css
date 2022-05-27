@@ -89,10 +89,6 @@ body {
   min-height: 100vh;
 }
 
-.bodyNotIndex {
-  height: 100vh;
-}
-
 .main {
   display: flex;
   justify-content: center;

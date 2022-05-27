@@ -6,8 +6,9 @@ class Media:
 
     Attributes:
         name: name
-        type: the MediaType of the media
+        med_type: the MediaType of the media
         field_1 to field_3: The values of the three fields of the MediaType
+        _id: ID used in MongoDB database entries
     """
 
     def __init__(self, name, med_type: MediaType, field_1, field_2, field_3, _id = None):

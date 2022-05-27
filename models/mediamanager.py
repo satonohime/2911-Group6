@@ -14,9 +14,7 @@ class MediaManager:
     Represents a collection of Media
 
     Attributes:
-        filename: name of the file to read
-        types: a list of MediaTypes
-        media: a list of all the Media instances
+        data: a list of all the Media instances
     """
 
     def __init__(self, data = []):
