@@ -168,7 +168,7 @@ form {
 .CreateButtons {
   display: flex;
   font-family: 'Fira Sans', sans-serif;
-  padding-top: 10px;
+  padding-top: 5px;
   justify-content: center;
 }
 
@@ -331,7 +331,7 @@ td > a, a:hover, a:visited, a:active {
 input{
   border-radius: 5px;
   width: 200px;
-  height: 25px  ;
+  height: 25px;
 }
 
 
@@ -374,12 +374,12 @@ cursor: pointer;
 }
 
 #createForm input{
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
 #editform input{
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
