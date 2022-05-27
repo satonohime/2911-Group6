@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/styles.css">
+  <script defer src="/static/js/script.js"></script>
   <title>Edit</title>
 </head>
 
@@ -41,39 +42,6 @@
       <button id="Cancel" class="edit-button-cancel">Cancel</button>
       <button id="Apply" class="edit-button-submit">Apply Changes</button>
     </div>
-  <script>
-    function goBack(ev) {
-      ev.preventDefault
-      var url = "/"
-      window.location = url
-    }
-    function handleform(ev) {
-      ev.preventDefault(); //stop page reloading
-      let myform = document.getElementById('editform');
-      let fd = new FormData(myform);
-
-      if (fd.get("name") == "" || fd.get("name") == null) {
-        alert("Name is required")
-        return
-      } 
-
-      keyValue = document.getElementById('keyValueHidden').value
-      let url = `/editentry/${keyValue}`
-      let req = new Request(url, {
-        body: fd,
-        method: 'PUT',
-      });
-      fetch(req)
-        .then(result => {
-          var url = "/"
-          window.location = url
-        })
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('Apply').addEventListener('click', handleform)
-      document.getElementById('Cancel').addEventListener('click', goBack)
-    });
-  </script>
 </body>
 
 </html>

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/styles.css">
+  <script defer src="/static/js/script.js"></script>
   <title>Create an Entry</title>
 </head>
 
@@ -40,18 +41,6 @@
       <button id="Create" class="form-submit-button">Create Entry</button>
     </div>
   </form>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('Cancel').addEventListener('click', goBack)
-    });
-    function goBack(ev) {
-      ev.preventDefault
-      var url = "/"
-      window.location = url
-    }
-  </script>
-
   </main>
 </body>
 

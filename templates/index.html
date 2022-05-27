@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/styles.css">
+  <script defer src="/static/js/script.js"></script>
   <title>Index</title>
 </head>
 
@@ -75,37 +76,5 @@
     </main>
   </div>
 </body>
-<script>
-  function routeToDelete(ev) {
-    ev.preventDefault()
-    parent = ev.target.parentNode
-    keyValue = parent.children[0].value
-    const url = `/deleteentry/${keyValue}`
-    fetch(url, { method: 'DELETE' }).then(result => {
-      var url = "/";
-      window.location = url;
-    })
-  }
-  function submitMediaDropDown(ev) {
-    ev.preventDefault()
-    myForm = document.getElementById("mediaDropDownForm")
-    myFormData = new FormData(document.getElementById("mediaDropDownForm"))
-    if (myFormData.get("medias") == "select_media") {
-      alert("Select a type")
-      return
-    } else {
-      myForm.submit()
-    }
-  }
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.del-button');
-    buttons.forEach(button => {
-      button.addEventListener('click', routeToDelete);
-    });
-
-    const mediaForm = document.getElementById("mediaDropDownForm");
-    mediaForm.addEventListener('submit', submitMediaDropDown);
-  });
-</script>
 
 </html>
